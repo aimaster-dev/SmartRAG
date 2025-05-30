@@ -1,95 +1,130 @@
-# LangGraphRAG
+# 🚀 SmartRAG
 
-LangGraphRAG is a terminal-based Retrieval-Augmented Generation (RAG) system implemented using LangGraph. The architecture is designed to handle queries by routing them through a series of processes involving message history caching, query transformation, and document retrieval from a vector database.
+**SmartRAG** is a terminal-based Retrieval-Augmented Generation (RAG) system built using [LangGraph](https://github.com/langchain-ai/langgraph). It routes user queries through a custom flow that includes message history, query transformation, and document retrieval from a vector store.
 
-## Project Structure
+> 🔗 GitHub: [https://github.com/aimaster-dev/SmartRAG](https://github.com/aimaster-dev/SmartRAG)
 
-The project is divided into several modules, each responsible for specific functionalities:
-1. **Architecture**: Defines the flow of the RAG system.
-2. **Data**: Contains data files and models.
-3. **Modules**: Houses the core logic and functions.
+---
 
-## Setup Instructions
+## 🧠 Features
 
-Follow these steps to set up and run the project:
+* LangGraph-powered RAG pipeline
+* Smart routing of user queries
+* PDF and Markdown ingestion support
+* Optional webpage-to-PDF and PDF-to-Markdown conversion
+* OpenAI GPT integration for natural language responses
 
-1. **Clone the repository**:
-   ```sh
-   git clone https://github.com/ranguy9304/LangGraphRAG.git
-   cd LangGraphRAG
-   ```
+---
 
-2. **Create a virtual environment**:
-   ```sh
-   python3.12 -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-   ```
+## 🗂️ Project Structure
 
-3. **Install the requirements**:
-   ```sh
-   pip install -r requirements.txt
-   choco install wkhtmltopdf
-   ```
+```
+SmartRAG/
+├── architecture/         # LangGraph RAG workflow logic
+├── data/                 # Processed markdown or PDF content
+├── modules/              # Core logic for query handling & doc processing
+├── main.py               # Entry point
+└── processDocs.py        # Document preprocessing script
+```
 
-4. **Configure the environment variables**:
-   - Copy the example environment file:
-      ```sh
-      cp .env.example .env
-      ```
-   - Modify the `.env` file to add your GPT key:
-      ```env
-      OPENAI_API_KEY=your_gpt_key_here
-      ```
-   - Add your webpage urls if using webpages (keep it comma seperated without quotations):
-      ```env
-      URLS =url1,url2
-      ```
-   - set the `GET_WEB_PAGES_TO_PDF` to True if downloading webpages else False:
-      ```env
-      GET_WEB_PAGES_TO_PDF=False
+---
 
-      ```
-   - set the `CONVERT_PDF_TO_MD` to True if already have pdf else False:
-      ```env
-      CONVERT_PDF_TO_MD=True
+## ⚙️ Setup
 
-      ```
-   - If using PDF docs directly store them in the path used in `INTERMEDIATE_PDF_DIR`
-   - If using .md docs directly store them in the path used in `DATA_DIR`
+Follow the steps below to get SmartRAG up and running:
 
+### 1. Clone the Repo
 
-5. **Setup documents**:
-   from the root directory run
-   ```sh
-   python modules/processDocs.py
-   ```
-   this sets up the webpages and docs. Dont forget to modify the document processing parameters in .env as per your needs.
+```bash
+git clone https://github.com/aimaster-dev/SmartRAG.git
+cd SmartRAG
+```
 
+### 2. Create Virtual Environment
 
-6. **Run the main program**:
-   ```sh
-   python main.py
-   ```
+```bash
+python3.12 -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+```
 
-## Usage
+### 3. Install Dependencies
 
-- The system handles queries by routing them through different processes.
-- It uses LangGraph to manage the flow and interactions between modules.
+```bash
+pip install -r requirements.txt
+choco install wkhtmltopdf  # for HTML to PDF conversion (Windows only)
+```
 
-## Diagrams
+### 4. Environment Setup
 
-### Vector DB Creation
-![Vector DB Creation](https://github.com/aimaster-dev/SmartRAG/blob/main/architecture/RAG.png)
+Copy and edit the `.env` file:
 
-### RAG Architecture
-![RAG Architecture](https://github.com/aimaster-dev/SmartRAG/blob/main/architecture/RAG.png)
+```bash
+cp .env.example .env
+```
 
+Edit `.env` to include:
 
-## Contribution
+```env
+OPENAI_API_KEY=your_openai_key
+URLS=url1,url2         # Optional: URLs to fetch as PDF
+GET_WEB_PAGES_TO_PDF=True
+CONVERT_PDF_TO_MD=True
+INTERMEDIATE_PDF_DIR=./pdfs
+DATA_DIR=./data
+```
 
-Feel free to fork the repository and submit pull requests. For major changes, please open an issue to discuss what you would like to change.
+### 5. Process Your Documents
 
-## License
+```bash
+python modules/processDocs.py
+```
 
-[MIT](https://choosealicense.com/licenses/mit/)
+> ⚠️ Make sure to update `.env` parameters based on your use case.
 
+### 6. Run SmartRAG
+
+```bash
+python main.py
+```
+
+---
+
+## 🔍 How It Works
+
+1. **User query** is passed into a LangGraph workflow.
+2. **Message history** is cached and contextually enriched.
+3. If needed, input is transformed for better retrieval.
+4. Documents are pulled from a **vector store** using similarity search.
+5. GPT model generates a context-aware answer.
+
+---
+
+## 🖼️ Architecture Overview
+
+### 📄 Vector Store Creation
+
+![Vector DB](https://github.com/aimaster-dev/SmartRAG/blob/main/architecture/RAG.png)
+
+### 🧠 RAG Pipeline
+
+![RAG Flow](https://github.com/aimaster-dev/SmartRAG/blob/main/architecture/RAG.png)
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions!
+
+* Fork the repo
+* Create a feature branch
+* Submit a pull request
+
+> Got a big idea? Open an issue to discuss it first.
+
+---
+
+## 📬 Contact
+
+For questions, feedback, or collaboration ideas — feel free to open an issue or reach out through GitHub!
+
+---
