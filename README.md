@@ -82,7 +82,7 @@ Follow these steps to set up and run the project:
 ![Vector DB Creation](https://github.com/aimaster-dev/SmartRAG/blob/main/architecture/RAG.png)
 
 ### RAG Architecture
-![RAG Architecture](https://github.com/aimster-dev/SmartRAG/raw/main/architecture/RAG.png)
+![RAG Architecture](https://github.com/aimaster-dev/SmartRAG/blob/main/architecture/RAG.png)
 
 
 ## Contribution
