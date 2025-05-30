@@ -79,10 +79,10 @@ Follow these steps to set up and run the project:
 ## Diagrams
 
 ### Vector DB Creation
-![Vector DB Creation](https://github.com/ranguy9304/LangGraphRAG/raw/main/architecture/vectordb_creation.png)
+![Vector DB Creation](https://github.com/aimster-dev/SmartRAG/raw/main/architecture/vectordb_creation.png)
 
 ### RAG Architecture
-![RAG Architecture](https://github.com/ranguy9304/LangGraphRAG/raw/main/architecture/RAG.png)
+![RAG Architecture](https://github.com/aimster-dev/SmartRAG/raw/main/architecture/RAG.png)
 
 
 ## Contribution
