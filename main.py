@@ -7,9 +7,6 @@ from modules.graph import Graph
 
 load_dotenv()
 
-
-
-
 loader = Loader()
 
 
